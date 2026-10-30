@@ -9,17 +9,21 @@ Este repositório disponibiliza o arquivo de instalação Android **mitto-final.
 Tamanho: aproximadamente 6,8 MB  
 SHA-256: `85a1970ba9975657f3dd114d8df1a89778e29fce88910cd8752bb169b6012958`
 
-## Sobre o projeto e o site
+## O que é o Mitto
 
-O site associado ao projeto é apresentado como **Krypton Labs**, no repositório [`mz-dev-cloud/mzcontents`](https://github.com/mz-dev-cloud/mzcontents). De acordo com o próprio site, a equipe desenvolve sites, aplicativos, bots e sistemas sob medida e oferece suporte aos projetos. O site também reúne páginas, serviços e recursos da Krypton Labs.
+Mitto é um aplicativo de conversas e mensagens. A descrição incluída no próprio app apresenta a proposta como um espaço para conversar em particular, criar grupos e se conectar com outras pessoas.
 
-A proposta publicada é transformar ideias de clientes em produtos digitais funcionais e apresentar os trabalhos e serviços da equipe. O site informa que o time atua desde 2023.
+Entre as funções visíveis no aplicativo estão conversas privadas e em grupo, envio de mensagens e anexos (como fotos, vídeos, áudios e arquivos), gravação de áudio/vídeo, chamadas de voz e vídeo e figurinhas.
 
-## Como o site foi criado
+## Por que foi criado
 
-A versão do site presente no repositório `mz-dev-cloud/mzcontents` é composta principalmente por páginas HTML, estilos CSS e scripts JavaScript. O projeto usa Cloudflare Workers/Assets e a ferramenta Wrangler para configuração e publicação (`wrangler.jsonc`), além de Supabase para funções de autenticação visíveis no código do site.
+Pelo texto e pelas telas do próprio app, o Mitto foi pensado para oferecer um lugar dedicado à comunicação entre pessoas, tanto em conversas individuais quanto em grupos, com mensagens e chamadas no mesmo aplicativo.
 
-O APK deste repositório é distribuído como binário pronto para instalação. O código-fonte Android não está incluído aqui. A inspeção do pacote indica dependências Kotlin/AndroidX e componentes Firebase; isso descreve bibliotecas encontradas no APK e não substitui documentação completa da arquitetura do aplicativo.
+## Como foi feito e tecnologias identificadas
+
+A inspeção do APK mostra uma atividade Android nativa (`MainActivity`) que exibe a interface em uma `WebView`. A interface e parte da lógica do cliente estão empacotadas no APK como HTML, CSS e JavaScript. O cliente usa Socket.IO e requisições HTTP para se comunicar com os serviços do Mitto; o código da interface também usa APIs de mídia do navegador para recursos de áudio/vídeo. O pacote inclui componentes Android/Kotlin e Firebase, inclusive um serviço de mensagens Firebase.
+
+Este repositório contém somente o APK pronto para instalação — não o código-fonte completo do app nem o servidor/backend. Portanto, as tecnologias descritas acima foram identificadas nos arquivos internos do APK e não representam documentação completa do sistema.
 
 ## Instalação
 
@@ -27,7 +31,7 @@ O APK deste repositório é distribuído como binário pronto para instalação.
 2. Abra o arquivo baixado e siga as instruções do Android.
 3. Se o sistema solicitar, permita a instalação de apps desta fonte nas configurações do dispositivo; você pode desativar essa permissão depois.
 
-Instale APKs somente se confiar na origem. O arquivo é fornecido pelo mantenedor deste repositório; o GitHub não certifica nem analisa o aplicativo.
+Instale APKs somente se confiar na origem. O arquivo foi fornecido pelo mantenedor deste repositório; o GitHub não certifica nem analisa o aplicativo.
 
 ## Detalhes do arquivo
 
